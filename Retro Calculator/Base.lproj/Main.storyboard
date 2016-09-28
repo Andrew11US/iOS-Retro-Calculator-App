@@ -299,6 +299,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="clearButton" destination="Iu8-tu-Chs" id="4IL-Tf-gil"/>
                         <outlet property="outputLbl" destination="XRH-Eg-J5F" id="rhy-Im-Y5p"/>
                     </connections>
                 </viewController>

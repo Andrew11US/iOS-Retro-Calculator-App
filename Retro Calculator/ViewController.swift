@@ -20,14 +20,15 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var outputLbl: UILabel!
+    @IBOutlet weak var clearButton: UIButton!
     
     var btnSound: AVAudioPlayer!
     
     // Variables
-    var runningNumber = ""
-    var leftValStr = ""
-    var rightValStr = ""
-    var result = ""
+    var runningNumber = "0"
+    var leftValStr = "0"
+    var rightValStr = "0"
+    var result = "0"
     var currentOperation: Operation = Operation.Empty
     
     override func viewDidLoad() {
@@ -53,6 +54,7 @@ class ViewController: UIViewController {
     // Actions
     @IBAction func numberPressed(btn: UIButton!) {
         playSound()
+        clearButton.hidden = false
         
         runningNumber += "\(btn.tag)"
         outputLbl.text = runningNumber
@@ -81,14 +83,13 @@ class ViewController: UIViewController {
     @IBAction func onClearPressed(sender: AnyObject) {
         playSound()
         
-        /*
-        runningNumber = ""
-        leftValStr = ""
-        rightValStr = ""
-        outputLbl.text = "O"
+        runningNumber = "0"
+        leftValStr = "0"
+        rightValStr = "0"
+        outputLbl.text = "0"
         result = "0"
         currentOperation = Operation.Empty
-        */
+        
     }
     
     func processOperation(op: Operation) {
@@ -127,7 +128,7 @@ class ViewController: UIViewController {
             // This is the first time an operator has been pressed
             
             leftValStr = runningNumber
-            runningNumber = ""
+            runningNumber = "0"
             currentOperation = op
         }
     }
