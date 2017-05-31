@@ -10,7 +10,18 @@ import UIKit
 import AVFoundation
 
 class AudioService {
+    
     static let instance = AudioService()
+    
+    private var _soundFXPlayer: AVAudioPlayer?
+    
+    var soundFXPlayer: AVAudioPlayer? {
+        get {
+            return _soundFXPlayer
+        } set {
+            _soundFXPlayer = newValue
+        }
+    }
     
     var btnUrl: URL? {
         
@@ -29,11 +40,23 @@ class AudioService {
         do {
             return try AVAudioPlayer(contentsOf: audioUrl)
             
-        } catch let err as NSError {
+        } catch {
             return nil
         }
-
     }
     
+    func playCurrentSoundFX() -> Bool {
+        
+        if let player = soundFXPlayer {
+            
+            if player.isPlaying {
+                soundFXPlayer?.stop()
+            }
+            
+            soundFXPlayer?.play()
+            return player.isPlaying
+        }
+        return false
+    }
     
 }

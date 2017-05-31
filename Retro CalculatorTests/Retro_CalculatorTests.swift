@@ -27,6 +27,11 @@ class Retro_CalculatorTests: XCTestCase {
         XCTAssertNotNil(AudioService.instance.btnUrl)
         XCTAssertNotNil(AudioService.instance.createPlayerWithUrl(audioUrl: AudioService.instance.btnUrl!))
         
+        XCTAssertFalse(AudioService.instance.playCurrentSoundFX())
+        AudioService.instance.soundFXPlayer = AudioService.instance.createPlayerWithUrl(audioUrl: AudioService.instance.btnUrl!)
+        XCTAssertNotNil(AudioService.instance.soundFXPlayer)
+        XCTAssertTrue(AudioService.instance.playCurrentSoundFX())
+        
     }
     
     func testCalcService() {
@@ -36,7 +41,14 @@ class Retro_CalculatorTests: XCTestCase {
         XCTAssertEqual(CalcService.Operation.subtract.rawValue, "-", "Incorrect Operator")
         XCTAssertEqual(CalcService.Operation.multiply.rawValue, "*", "Incorrect Operator")
         XCTAssertEqual(CalcService.Operation.empty.rawValue, "Empty")
-        XCTAssertNotNil(CalcService.instance.multiply(numAstr: "4", numBstr: "7"))
+        
+        XCTAssertNil(CalcService.instance.multiply(numAstr: "a", numBstr: "f4"))
+        XCTAssertNotNil(CalcService.instance.multiply(numAstr: "4.0", numBstr: "7.0"))
+        XCTAssertEqual(CalcService.instance.multiply(numAstr: "10.0", numBstr: "5.0"), "50.0")
+        
+        XCTAssertNil(CalcService.instance.divide(numAstr: "a", numBstr: "b"))
+        XCTAssertNotNil(CalcService.instance.divide(numAstr: "10.0", numBstr: "5.0"))
+        XCTAssertEqual(CalcService.instance.divide(numAstr: "10.0", numBstr: "5.0"), "2.0")
         
     }
     

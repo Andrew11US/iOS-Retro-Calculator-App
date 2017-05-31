@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var outputLbl: UILabel!
     @IBOutlet weak var clearButton: UIButton!
     
-    var player: AVAudioPlayer!
-    
     // Variables
     var runningNumber = "0"
     var leftValStr = "0"
@@ -27,8 +25,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Creting a AVAudioPlayer
-        player = AudioService.instance.createPlayerWithUrl(audioUrl: AudioService.instance.btnUrl!)
-        player?.prepareToPlay()
+        AudioService.instance.soundFXPlayer = AudioService.instance.createPlayerWithUrl(audioUrl: AudioService.instance.btnUrl!)
+        AudioService.instance.soundFXPlayer?.prepareToPlay()
         
     }
 
@@ -88,13 +86,13 @@ class ViewController: UIViewController {
                     result = CalcService.instance.multiply(numAstr: leftValStr, numBstr: rightValStr)!
                     
                 } else if currentOperation == CalcService.Operation.divide {
-                    result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                    result = CalcService.instance.divide(numAstr: leftValStr, numBstr: rightValStr)!
                     
                 } else if currentOperation == CalcService.Operation.subtract {
-                    result = "\(Double(leftValStr)! - Double(rightValStr)!)"
+                    result = CalcService.instance.subtract(numAstr: leftValStr, numBstr: rightValStr)!
                     
                 } else if currentOperation == CalcService.Operation.add {
-                    result = "\(Double(leftValStr)! + Double(rightValStr)!)"
+                    result = CalcService.instance.add(numAstr: leftValStr, numBstr: rightValStr)!
                 }
                 
                 leftValStr = result
@@ -115,12 +113,7 @@ class ViewController: UIViewController {
     }
     
     func playSound() {
-        
-        if player.isPlaying {
-            player.stop()
-        }
-        
-        player.play()
+        AudioService.instance.playCurrentSoundFX()
     }
     
 }
