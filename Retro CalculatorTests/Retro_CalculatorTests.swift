@@ -29,6 +29,17 @@ class Retro_CalculatorTests: XCTestCase {
         
     }
     
+    func testCalcService() {
+        
+        XCTAssertNotNil(CalcService.instance)
+        XCTAssertEqual(CalcService.Operation.add.rawValue, "+", "Incorrect Operator")
+        XCTAssertEqual(CalcService.Operation.subtract.rawValue, "-", "Incorrect Operator")
+        XCTAssertEqual(CalcService.Operation.multiply.rawValue, "*", "Incorrect Operator")
+        XCTAssertEqual(CalcService.Operation.empty.rawValue, "Empty")
+        XCTAssertNotNil(CalcService.instance.multiply(numAstr: "4", numBstr: "7"))
+        
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

@@ -17,6 +17,8 @@
 		90B39D141EDECBBD00D8FFF3 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B39D131EDECBBD00D8FFF3 /* AudioService.swift */; };
 		90B39D1C1EDECEAF00D8FFF3 /* Retro_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B39D1B1EDECEAF00D8FFF3 /* Retro_CalculatorTests.swift */; };
 		90B39D231EDECF3A00D8FFF3 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B39D131EDECBBD00D8FFF3 /* AudioService.swift */; };
+		90B39D251EDEDC6300D8FFF3 /* CalcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B39D241EDEDC6300D8FFF3 /* CalcService.swift */; };
+		90B39D261EDEDCD900D8FFF3 /* CalcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B39D241EDEDC6300D8FFF3 /* CalcService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 		90B39D191EDECEAF00D8FFF3 /* Retro CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retro CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B39D1B1EDECEAF00D8FFF3 /* Retro_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retro_CalculatorTests.swift; sourceTree = "<group>"; };
 		90B39D1D1EDECEAF00D8FFF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B39D241EDEDC6300D8FFF3 /* CalcService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				90B39D131EDECBBD00D8FFF3 /* AudioService.swift */,
+				90B39D241EDEDC6300D8FFF3 /* CalcService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -221,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B39D251EDEDC6300D8FFF3 /* CalcService.swift in Sources */,
 				907EA88C1D84012D008E6868 /* ViewController.swift in Sources */,
 				907EA88A1D84012D008E6868 /* AppDelegate.swift in Sources */,
 				90B39D141EDECBBD00D8FFF3 /* AudioService.swift in Sources */,
@@ -232,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B39D231EDECF3A00D8FFF3 /* AudioService.swift in Sources */,
+				90B39D261EDEDCD900D8FFF3 /* CalcService.swift in Sources */,
 				90B39D1C1EDECEAF00D8FFF3 /* Retro_CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +451,7 @@
 				90B39D221EDECEAF00D8FFF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

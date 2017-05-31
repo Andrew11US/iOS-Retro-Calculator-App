@@ -11,14 +11,6 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    enum Operation: String {
-        case Divide = "/"
-        case Multiply = "*"
-        case Subtract = "-"
-        case Add = "+"
-        case Empty = "Empty"
-    }
-
     @IBOutlet weak var outputLbl: UILabel!
     @IBOutlet weak var clearButton: UIButton!
     
@@ -29,7 +21,7 @@ class ViewController: UIViewController {
     var leftValStr = "0"
     var rightValStr = "0"
     var result = "0"
-    var currentOperation: Operation = Operation.Empty
+    var currentOperation = CalcService.Operation.empty
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,19 +42,19 @@ class ViewController: UIViewController {
     }
   
     @IBAction func onDividePressed(_ sender: AnyObject) {
-        processOperation(Operation.Divide)
+        processOperation(CalcService.Operation.divide)
     }
     
     @IBAction func onMultiplyPressed(_ sender: AnyObject) {
-        processOperation(Operation.Multiply)
+        processOperation(CalcService.Operation.multiply)
     }
     
     @IBAction func onSubtractPressed(_ sender: AnyObject) {
-        processOperation(Operation.Subtract)
+        processOperation(CalcService.Operation.subtract)
     }
     
     @IBAction func onAddPressed(_ sender: AnyObject) {
-        processOperation(Operation.Add)
+        processOperation(CalcService.Operation.add)
     }
     
     @IBAction func onEqualPressed(_ sender: AnyObject) {
@@ -77,14 +69,14 @@ class ViewController: UIViewController {
         rightValStr = "0"
         outputLbl.text = "0"
         result = "0"
-        currentOperation = Operation.Empty
+        currentOperation = CalcService.Operation.empty
         
     }
     
-    func processOperation(_ op: Operation) {
+    func processOperation(_ op: CalcService.Operation) {
         playSound()
         
-        if currentOperation != Operation.Empty {
+        if currentOperation != CalcService.Operation.empty {
             //Run some math
             
             // A user selected an operator, but then selected another operator without first entering a number
@@ -92,16 +84,16 @@ class ViewController: UIViewController {
                 rightValStr = runningNumber
                 runningNumber = ""
                 
-                if currentOperation == Operation.Multiply {
-                    result = "\(Double(leftValStr)! * Double(rightValStr)!)"
+                if currentOperation == CalcService.Operation.multiply {
+                    result = CalcService.instance.multiply(numAstr: leftValStr, numBstr: rightValStr)!
                     
-                } else if currentOperation == Operation.Divide {
+                } else if currentOperation == CalcService.Operation.divide {
                     result = "\(Double(leftValStr)! / Double(rightValStr)!)"
                     
-                } else if currentOperation == Operation.Subtract {
+                } else if currentOperation == CalcService.Operation.subtract {
                     result = "\(Double(leftValStr)! - Double(rightValStr)!)"
                     
-                } else if currentOperation == Operation.Add {
+                } else if currentOperation == CalcService.Operation.add {
                     result = "\(Double(leftValStr)! + Double(rightValStr)!)"
                 }
                 
