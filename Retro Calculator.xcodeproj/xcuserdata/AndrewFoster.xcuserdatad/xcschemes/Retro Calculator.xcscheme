@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Retro Calculator.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "90B39D2A1EDEF1AC00D8FFF3"
+               BuildableName = "Retro CalculatorUITests.xctest"
+               BlueprintName = "Retro CalculatorUITests"
+               ReferencedContainer = "container:Retro Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
