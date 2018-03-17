@@ -32,8 +32,8 @@ class Retro_CalculatorUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        XCUIDevice.shared().orientation = .faceUp
-        XCUIDevice.shared().orientation = .faceUp
+        XCUIDevice.shared.orientation = .faceUp
+        XCUIDevice.shared.orientation = .faceUp
         
         let app = XCUIApplication()
         
